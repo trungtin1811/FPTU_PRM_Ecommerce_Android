@@ -17,13 +17,17 @@ import lombok.experimental.Accessors;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ProductModel implements Serializable {
-    public Long id;
-    public String name;
-    public String imageUrl;
+    private Long id;
+    private String name;
+    private String imageUrl;
+    private String description;
+    private Double price;
 
     public ProductModel(Product product) {
         this.id = product.getId();
         this.name = product.getName();
         this.imageUrl = product.getImageUrl();
+        this.description = product.getDescription();
+        this.price = product.getPrice();
     }
 }

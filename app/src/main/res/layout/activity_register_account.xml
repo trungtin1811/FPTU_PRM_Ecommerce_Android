@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#5956E9"
+    android:background="@color/primary"
     tools:context=".activities.RegisterAccountActivity">
 
     <ImageView
@@ -123,9 +123,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="62dp"
                 android:layout_marginBottom="24dp"
-                android:backgroundTint="#5956E9"
+                android:backgroundTint="@color/primary"
                 android:text="Register"
-                android:textColor="#FFFFFF"
+                android:textColor="@color/white"
                 app:layout_constraintBottom_toTopOf="@+id/txtLogin"
                 app:layout_constraintEnd_toEndOf="parent" />
 
@@ -175,7 +175,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:text=""
-                android:textColor="#E16C71"
+                android:textColor="@color/danger"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
@@ -187,7 +187,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:text=""
-                android:textColor="#E16C71"
+                android:textColor="@color/danger"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
@@ -199,7 +199,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:text=""
-                android:textColor="#E16C71"
+                android:textColor="@color/danger"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
@@ -210,7 +210,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text=""
-                android:textColor="#E16C71"
+                android:textColor="@color/danger"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"

@@ -20,6 +20,7 @@ public class AccountModel implements Serializable {
     public String id;
     public String name;
     public String email;
+    public String imageUrl;
     public Role role;
 
     public AccountModel(Account account) {
@@ -27,5 +28,6 @@ public class AccountModel implements Serializable {
         this.name = account.getName();
         this.email = account.getEmail();
         this.role = account.getRole();
+        this.imageUrl = account.getImageUrl();
     }
 }

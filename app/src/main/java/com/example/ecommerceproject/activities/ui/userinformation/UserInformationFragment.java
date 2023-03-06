@@ -10,14 +10,18 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import com.bumptech.glide.Glide;
 import com.example.ecommerceproject.R;
 import com.example.ecommerceproject.activities.LoginActivity;
+import com.example.ecommerceproject.database.AppDatabase;
 import com.example.ecommerceproject.databinding.FragmentUserInformationBinding;
-import com.example.ecommerceproject.dto.AccountModel;
+import com.example.ecommerceproject.entities.Account;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.firebase.auth.FirebaseAuth;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class UserInformationFragment extends Fragment {
 
@@ -54,11 +58,29 @@ public class UserInformationFragment extends Fragment {
                 startActivity(new Intent(getActivity(), LoginActivity.class));
             }
         });
-        AccountModel accountModel = (AccountModel) getActivity().getIntent().getSerializableExtra("currentUser");
-        System.out.println(accountModel.toString());
-        ((TextView) view.findViewById(R.id.txtAccountName)).setText(accountModel.getName());
-        ((TextView) view.findViewById(R.id.txtAccountEmail)).setText(accountModel.getEmail());
-        ((TextView) view.findViewById(R.id.txtAccountPhone)).setText("0705 365 185");
+        String id = getActivity().getIntent().getExtras().getString("currentUserId");
+        Account account = AppDatabase.getInstance(getContext()).accountDao().getById(id);
+        if (account == null) {
+            return;
+        }
+        ((TextView) view.findViewById(R.id.txtAccountName)).setText(account.getName());
+        ((TextView) view.findViewById(R.id.txtAccountEmail)).setText(account.getEmail());
+        ((TextView) view.findViewById(R.id.txtAccountPhone)).setText(account.getPhone() != null ? account.getPhone() : "");
+        ((TextView) view.findViewById(R.id.txtAccountAddress)).setText(account.getAddress() != null ? account.getAddress() : "");
+        if (account.getImageUrl() != null) {
+            Glide.with(getContext()).load(account.getImageUrl()).into((CircleImageView) view.findViewById(R.id.imageAvatar));
+
+        }
+        view.findViewById(R.id.btnUpdateProfile).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getParentFragmentManager().beginTransaction()
+                        .replace(R.id.nav_host_fragment_activity_dashboard, new UpdateProfileFragment())
+                        .addToBackStack(null)
+                        .commit();
+            }
+        });
+
 
     }
 

@@ -17,7 +17,7 @@
 
     <fragment
         android:id="@+id/navigation_order"
-        android:name="com.example.ecommerceproject.activities.ui.cart.CartFragment"
+        android:name="com.example.ecommerceproject.activities.ui.order.OrderFragment"
         tools:layout="@layout/fragment_order" />
 
     <fragment

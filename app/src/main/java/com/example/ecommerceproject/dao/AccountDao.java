@@ -30,4 +30,5 @@ public interface AccountDao {
 
     @Query("SELECT * FROM accounts a WHERE a.email == :email")
     Account getByEmail(String email);
+
 }

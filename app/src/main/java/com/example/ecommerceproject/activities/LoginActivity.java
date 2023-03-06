@@ -52,18 +52,13 @@ public class LoginActivity extends AppCompatActivity {
                 handleSuccess(new AccountModel(account));
             }
         }
-        FirebaseAuth.getInstance().signOut();
-        mGoogleSignInClient.signOut();
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
         db = AppDatabase.getInstance(getApplicationContext());
-        //Init default product
-        initProducts();
         getSupportActionBar().hide();
 
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
@@ -151,6 +146,8 @@ public class LoginActivity extends AppCompatActivity {
                                     account = new Account().setName(user.getDisplayName())
                                             .setEmail(user.getEmail())
                                             .setId(user.getUid())
+                                            .setPhone(user.getPhoneNumber())
+                                            .setImageUrl(user.getPhotoUrl().toString())
                                             .setRole(Role.USER);
                                     db.accountDao().insertAll(account);
                                 }
@@ -192,46 +189,8 @@ public class LoginActivity extends AppCompatActivity {
 
     private void handleSuccess(AccountModel accountModel) {
         Intent intent = new Intent(LoginActivity.this, DashboardActivity.class);
-        intent.putExtra("currentUser", (Serializable) accountModel);
+        intent.putExtra("currentUserId", accountModel.getId());
         startActivity(intent);
         finish();
-    }
-
-    private void initProducts() {
-        if (db.productDao().getAll().size() > 0) {
-            return;
-        }
-        db.productDao().insertAll(
-                new Product()
-                        .setName("Apple Watch")
-                        .setDescription("Available when you purchase any new iPhone, iPad, iPod Touch, Mac or Apple TV, £4.99/month after free trial.")
-                        .setPrice(1000.0)
-                        .setQuantity(10L)
-                        .setImageUrl("https://images.fpt.shop/unsafe/fit-in/800x800/filters:quality(5):fill(white)/fptshop.com.vn/Uploads/Originals/2022/9/12/637985935050489552_apple-watch-series-8-gps-41mm-do-dd.jpg"),
-                new Product()
-                        .setName("IPhone 14")
-                        .setDescription("iPhone 14 Pro. Capture impressive details with the 48MP Main Camera. Experience iPhone in a whole new way with Dynamic Island and the Always On display. Collision Detection, a new safety feature, calls for help when needed.")
-                        .setPrice(2000.0)
-                        .setQuantity(20L)
-                        .setImageUrl("https://shopdunk.com/images/thumbs/0008771_iphone-14-pro-256gb.png"),
-                new Product()
-                        .setName("Macbook M2")
-                        .setDescription("M2 is the next generation of Apple silicon. Its 8-core CPU lets you zip through everyday tasks like creating documents and presentations, or take on more intensive workflows like developing in Xcode or mixing tracks in Logic Pro.")
-                        .setPrice(1000.0)
-                        .setQuantity(10L)
-                        .setImageUrl("https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/mbp-spacegray-select-202206?wid=904&hei=840&fmt=jpeg&qlt=90&.v=1664497359481"),
-                new Product()
-                        .setName("Air Pod 2")
-                        .setDescription("AirPods 2 Lightning Charge Apple MV7N2 Bluetooth headset - dubbed a national legendary AirPods that is very popular with apple fans.")
-                        .setPrice(3000.0)
-                        .setQuantity(10L)
-                        .setImageUrl("https://cdn.tgdd.vn/Products/Images/54/236016/bluetooth-airpods-2-apple-mv7n2-imei-1-org.jpg"),
-                new Product()
-                        .setName("Air Tag")
-                        .setDescription("Airtag is a small device with integrated Bluetooth technology used to find lost objects and equipment. Although there are many similar products, Apple's smart home accessories promise to integrate technology more deeply, allowing users to experience even more wonderful activities of the device.")
-                        .setPrice(1000.0)
-                        .setQuantity(10L)
-                        .setImageUrl("https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/a/i/airtag-3.png")
-        );
     }
 }

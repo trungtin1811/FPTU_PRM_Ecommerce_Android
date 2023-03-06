@@ -80,7 +80,7 @@ public class RegisterAccountActivity extends AppCompatActivity {
                             FirebaseUser user = mAuth.getCurrentUser();
                             Toast.makeText(RegisterAccountActivity.this, "Register successfully", Toast.LENGTH_LONG).show();
                             db.accountDao().insertAll(new Account()
-                                    .setId(UUID.randomUUID().toString())
+                                    .setId(user.getUid())
                                     .setEmail(registerAccountModel.getEmail())
                                     .setName(registerAccountModel.getName()));
                             startActivity(new Intent(RegisterAccountActivity.this, LoginActivity.class));

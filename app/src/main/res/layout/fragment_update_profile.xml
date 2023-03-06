@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout2"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/primary"
+    tools:context=".activities.ui.userinformation.UpdateProfileFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="362dp"
+        android:layout_height="255dp"
+        android:src="@drawable/login_texture"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="0sp"
+        android:layout_height="650dp"
+        android:background="@drawable/login_bg"
+        android:paddingHorizontal="40sp"
+        android:paddingVertical="40sp"
+        android:paddingLeft="50sp"
+        android:paddingTop="36sp"
+        android:paddingRight="50sp"
+        android:paddingBottom="36sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="120dp">
+
+            <EditText
+                android:id="@+id/txtUpdateName"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:backgroundTint="#5956E9"
+                android:elegantTextHeight="false"
+                android:hint="Full Name"
+                android:includeFontPadding="false"
+                android:inputType="textPersonName"
+                android:paddingTop="0dp"
+                android:paddingBottom="0dp"
+                android:textColor="#868686"
+                android:textColorHighlight="#868686"
+                android:textColorHint="#868686"
+                android:textColorLink="#868686"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/txtUpdateErrorName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="#E16C71"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtUpdateName" />
+
+            <EditText
+                android:id="@+id/txtUpdatePhone"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="20dp"
+                android:backgroundTint="#5956E9"
+                android:elegantTextHeight="false"
+                android:hint="Phone Number"
+                android:includeFontPadding="false"
+                android:inputType="phone"
+                android:paddingTop="0dp"
+                android:paddingBottom="0dp"
+                android:textColor="#868686"
+                android:textColorHighlight="#868686"
+                android:textColorHint="#868686"
+                android:textColorLink="#868686"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtUpdateName" />
+
+            <TextView
+                android:id="@+id/txtUpdateErrorPhone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="#E16C71"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtUpdatePhone" />
+            <EditText
+                android:id="@+id/txtUpdateAddress"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="20dp"
+                android:backgroundTint="#5956E9"
+                android:elegantTextHeight="false"
+                android:hint="Address"
+                android:includeFontPadding="false"
+                android:paddingTop="0dp"
+                android:paddingBottom="0dp"
+                android:textColor="#868686"
+                android:textColorHighlight="#868686"
+                android:textColorHint="#868686"
+                android:textColorLink="#868686"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtUpdatePhone" />
+
+            <TextView
+                android:id="@+id/txtUpdateErrorAddress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="#E16C71"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtUpdateAddress" />
+
+            <Button
+                android:id="@+id/btnUpdate"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:backgroundTint="@color/primary"
+                android:text="Update"
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </RelativeLayout>
+
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/imgUpdateBack"
+        android:layout_width="180dp"
+        android:layout_height="180dp"
+        android:layout_marginTop="68dp"
+        android:src="@drawable/avatar_placeholder"
+        app:civ_border_color="@color/primary"
+        app:civ_border_width="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/imgUpdate"
+        android:layout_width="180dp"
+        android:layout_height="180dp"
+        android:layout_marginTop="68dp"
+        android:src="@drawable/avatar_placeholder"
+        app:civ_border_color="@color/primary"
+        app:civ_border_width="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/imgClick"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginBottom="-12.5dp"
+        android:background="@drawable/circle_black"
+        android:fontFamily="@font/roboto_medium"
+        android:gravity="center"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/imgUpdateBack"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <RelativeLayout
+        android:id="@+id/imageCamera"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:layout_marginBottom="-2.5dp"
+        android:background="@drawable/camera"
+        android:fontFamily="@font/roboto_medium"
+        android:gravity="center"
+        android:text="+"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/imgUpdateBack"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

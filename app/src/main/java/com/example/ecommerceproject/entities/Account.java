@@ -25,6 +25,12 @@ public class Account {
     public String name;
     @ColumnInfo(name = "email")
     public String email;
+    @ColumnInfo(name = "image_url")
+    public String imageUrl;
+    @ColumnInfo(name = "address")
+    public String address;
+    @ColumnInfo(name = "phone")
+    public String phone;
     @ColumnInfo(name = "role")
     public Role role;
 }

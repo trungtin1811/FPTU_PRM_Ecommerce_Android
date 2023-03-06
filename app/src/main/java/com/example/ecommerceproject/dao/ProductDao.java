@@ -25,6 +25,10 @@ public interface ProductDao {
     @Query("SELECT * FROM products")
     List<Product> getAll();
 
+    @Query("SELECT * FROM products p WHERE p.name LIKE :searchKey")
+    List<Product> getAll(String searchKey);
+
     @Query("SELECT * FROM products p WHERE p.id == :id")
     Product getById(Long id);
+
 }
