@@ -76,6 +76,17 @@ public class HomeFragment extends Fragment implements ProductAdapter.OnItemClick
             }
         });
 
+
+        view.findViewById(R.id.btnMaps).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getParentFragmentManager().beginTransaction()
+                        .replace(R.id.nav_host_fragment_activity_dashboard, new MapsFragment())
+                        .addToBackStack(null)
+                        .commit();
+            }
+        });
+
     }
 
     private List<ProductModel> getListProduct() {
